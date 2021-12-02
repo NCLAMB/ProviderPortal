@@ -1,0 +1,134 @@
+﻿//Form Elements
+input {
+    &.form-control {
+        @include themify($themes) {
+            display: block;
+            width: 100%;
+            height: calc(2em + 16px + 2px);
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.5;
+            color: #495057;
+            background-color: themed(default-white);
+            background-clip: padding-box;
+            border: 1px solid themed(keyline-color);
+            border-radius: themed(global-radius);
+            transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+            margin: themed(rem-base) 0;
+            font-family: themed(secondary-font-style),themed(secondary-font-style-alt);
+        }
+    }
+}
+    /* Customize the label (the container) */
+.form-inputs li {
+    @include themify($themes) {
+        display: block;
+        position: relative;
+        padding: themed(rem-base) themed(rem-base) themed(rem-base) themed(rem-base) * 3;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        font-family: themed(secondary-font-style), sans-serif;
+
+        input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+        }
+    }
+}
+    /* Create a custom radio button */
+.radiomark {
+    @include themify($themes) {
+        position: absolute;
+        top: themed(rem-base);
+        left: 0;
+        height: themed(rem-base) + themed(rem-base) /2;
+        width: themed(rem-base) + themed(rem-base) /2;
+        background-color: themed(default-white);
+        border: 1px solid themed(keyline-color);
+        border-radius: 50%;
+        margin-left: themed(rem-base);
+    }
+}
+    /* Create a custom checkmark */
+.checkmark {
+    @include themify($themes) {
+        position: absolute;
+        top: themed(rem-base);
+        left: 0;
+        height: themed(rem-base) + themed(rem-base) /2;
+        width: themed(rem-base) + themed(rem-base) /2;
+        background-color: themed(default-white);
+        border: 1px solid themed(keyline-color);
+        border-radius: themed(global-radius);
+        margin-left: themed(rem-base)
+    }
+}
+label {
+    &.form-inputs {
+        .checkmark, .radiomark {
+            margin-left: 0;
+        }
+
+        li {
+            @include themify($themes) {
+                padding: themed(rem-base) themed(rem-base) themed(rem-base) themed(rem-base) * 2;
+            }
+        }
+    }
+}
+
+
+    /* On mouse-over, add a grey background color */
+.form-inputs li:hover input ~ .checkmark, .form-inputs li:hover input ~ .radiomark {
+    @include themify($themes) {
+        background-color: darken(themed(radiomark-off),20%);
+    }
+}
+    /* When the radio button is checked, add a background */
+.form-inputs li input:checked ~ .checkmark, .form-inputs li input:checked ~ .radiomark {
+    @include themify($themes) {
+        background-color: themed(radiomark-on);
+        border: 1px solid themed(radiomark-on);
+    }
+}
+    /* Create the indicator (the dot/circle - hidden when not checked) */
+    .checkmark:after, .radiomark:after {
+        content: "";
+        position: absolute;
+        display: none;
+    }
+    /* Show the indicator (dot/circle) when checked */
+.form-inputs li input:checked ~ .checkmark:after, .form-inputs li input:checked ~ .radiomark:after {
+    display: block;
+}
+    /* Style the indicator (dot/circle) */
+.form-inputs li {
+    @include themify($themes) {
+        .radiomark:after {
+            top: themed(rem-base-half) - 1;
+            left: themed(rem-base-half) - 1;
+            width: themed(rem-base-half);
+            height: themed(rem-base-half);
+            border-radius: 50%;
+            background: themed(checkmark-color);
+        }
+
+        .checkmark:after {
+            left: 8px;
+            top: 3px;
+            width: 6px;
+            height: 14px;
+            border: solid themed(checkmark-color);
+            border-width: 0 2px 2px 0;
+            -webkit-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
+    }
+}

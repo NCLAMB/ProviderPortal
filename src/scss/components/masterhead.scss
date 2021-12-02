@@ -1,0 +1,68 @@
+﻿// Styling for the masthead
+header.masthead {
+    @include themify($themes) {
+        margin-bottom: 50px;
+        background-repeat: themed(background-repeat);
+        background-position: center center;
+        background-color: themed(secondary-color);
+        background-attachment: scroll;
+        position: relative;
+        background-image: url(#{themed(imgpath)}/masterhead-city-horizon-desktop.jpg);
+        background-size: themed(masterhead-size);
+
+        .banner-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background-color: rgba( themed(overlay-color), .3 );
+            opacity: 0.5;
+        }
+
+        .header-overlay {
+            height: 200px;
+            background: linear-gradient(to bottom, rgba(10, 11, 24, 0.8) 0%,rgba(10, 11, 24, 0) 100%);
+            position: absolute;
+            z-index: 99;
+            width: 100%;
+        }
+
+        .page-heading,
+        .post-heading,
+        .site-heading {
+            padding: 200px 0 150px;
+            color: white;
+
+            @media only screen and (min-width: 768px) {
+                padding: 200px 0;
+            }
+        }
+
+        .page-heading,
+        .site-heading {
+            text-align: center;
+
+            h1 {
+                font-size: themed(rem-base) *3;
+                margin-top: 0;
+                color: themed(default-white);
+                text-shadow: 0px 2px 4px rgba( #999999, .8 );
+            }
+
+            .subheading {
+                font-size: themed(rem-base) *2;
+                font-weight: 300;
+                line-height: 1.1;
+                display: block;
+                margin: 8px 0 0;
+                text-shadow: 0px 2px 4px rgba( #999999, .8 );
+
+
+                @include themify($themes) {
+                    font-family: themed(primary-font-style),themed(primary-font-style-alt);
+                }
+            }
+        }
+    }
+}

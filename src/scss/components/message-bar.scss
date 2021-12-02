@@ -1,0 +1,14 @@
+﻿// Styling for the Messge Bar
+
+.message-bar {
+    @include themify($themes) {
+        border-bottom: 1px solid themed(keyline-color);
+        margin-bottom: themed(rem-base) * 1.5;
+        padding: 0 themed(rem-base);
+
+        h3 {
+            text-align: center;
+            padding-top: themed(rem-base) / 2;
+        }
+    }
+}

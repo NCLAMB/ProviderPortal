@@ -1,0 +1,13 @@
+﻿install node
+install yarn
+
+install babel globally
+
+yarn add babel-preset-react@6.24.1
+yarn add babel-preset-env@1.5.2
+
+babel src/app.jsx --out-file=public/scripts/app.js --presets=env,react --watch
+
+
+To regenerate node modules run the below
+yarn install

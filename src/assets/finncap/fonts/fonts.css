@@ -1,0 +1,5 @@
+﻿@font-face {
+    font-family: ABCDiatype;
+    src: url('ABCDiatype-Light.woff') format('woff'), /* Pretty Modern Browsers */
+         url('ABCDiatype-Light.otf') format('opentype'); /* Safari, Android, iOS */
+}

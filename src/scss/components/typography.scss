@@ -1,0 +1,83 @@
+﻿//Typography
+h1, h2, h3, h4, h5 {
+    @include themify($themes) {
+        color: themed(headline-text-color);
+        font-family: themed(primary-font-style),themed(primary-font-style-alt);
+        text-transform: themed(header-case);
+    }
+}
+
+h1 {
+    font-size: 2.2em;
+    line-height: 1.5em;
+    @include themify($themes) {
+        font-weight: themed(font-weight);
+        
+    }
+}
+
+h2 {
+    @include themify($themes) {
+        font-size: 1.8em;
+        line-height: 1.3em;
+        font-weight: themed(font-weight);
+        &.sub-title {
+            font-family: themed(secondary-font-style),themed(secondary-font-style-alt);
+            border-left: 5px solid themed(primary-color),;
+            padding: 1rem;
+        }
+    }
+}
+
+h3 {
+    font-size: 1.4em;
+    @include themify($themes) {
+        font-weight: themed(font-weight);
+    }
+}
+
+h4 {
+    font-size: 1.2em;
+}
+
+a {
+    @include themify($themes) {
+        color: themed(primary-color);
+        font-family: themed(secondary-font-style);
+    }
+}
+
+p {
+    @include themify($themes) {
+        font-family: themed(secondary-font-style),themed(secondary-font-style-alt);
+        margin-bottom: themed(paragraph-margin);
+        letter-spacing: themed(letter-spacing);
+        color: themed(body-text-color);
+        line-height: themed(paragraph-margin);
+    }
+}
+.alert {
+    a {
+        @include themify($themes) {
+            font-weight:bold;
+            &:hover {
+                text-decoration:underline;
+            }
+        }
+    }
+}
+date {
+    font-weight: bold;
+    text-align: left;
+    text-transform: uppercase;
+    vertical-align: middle;
+}
+
+.divider {
+    @include themify($themes) {
+        padding: 0 0 themed(rem-base) themed(rem-base);
+        margin: 0 0 1.5rem 0;
+        border-bottom: 2px solid themed(keyline-color);
+        font-weight: bold;
+    }
+}

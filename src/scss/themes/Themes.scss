@@ -1,0 +1,643 @@
+﻿//https://medium.com/@dmitriy.borodiy/easy-color-theming-with-scss-bc38fd5734d1
+
+$rem-base: 16px;
+$rem-base-half: 16px /2;
+$rem-base-third: $rem-base + $rem-base-half;
+$screen-xs-max: 33.9em;
+$screen-sm-min: 34em;
+$screen-sm-max: 48.9em;
+$screen-md-min: 49em;
+$screen-md-max: 63.9em;
+$screen-lg-min: 64em;
+$screen-xl-min: 100em;
+$box-shadow:0 0 25px 0 rgba(40, 47, 60, 0.06), 0 20px 25px 0 rgba(40, 47, 60, 0.06), 0 3px 4px 0 rgba(40, 47, 60, 0.05);
+$picky-link-color: #848484;
+$body-background-color: #f8f8f8;
+
+$themes: ( generic: (
+// Default value body font-size for the base rem value.
+// Heading font sizes
+// Template Settings Generic styles
+rem-base:$rem-base, rem-base-half:$rem-base-half, rem-base-third:$rem-base-third, h1-font-size: rem-calc(44), h2-font-size: rem-calc(37), h3-font-size: rem-calc(27), h4-font-size: rem-calc(23), h5-font-size: rem-calc(18), h6-font-size: 1em, letter-spacing:0.02em,paragraph-margin:20px,
+// Colours
+primary-color: #f58e09, secondary-color: #c7c7c7, terciary-color: #415d79, info-text-color:#415d79, divider-color: #c7c7c7, picky-link-color:$picky-link-color, overlay-color: #211840, keyline-color: #d2d2d2, dark-color: #555555, body-background-color: $body-background-color, default-white: #ffffff, radiomark-on: #f58e09, radiomark-off: #c7c7c7,body-text-color:#555555,hover-state-color:#c7c7c7,headline-text-color:#415d79,headline-ticker-color:#212529,badge-color:#f58e09,checkmark-color:#ffffff,disabled-color:#b9b9b9,ticker-color:#c1c1c1,badge-text-color:#ffffff,
+//Buttons
+secondary-btn-text-color:#f58e09,secondary-btn-border:2px solid #f58e09,secondary-btn-bg-color:transparent,secondary-btn-text-hover-color:#ffffff,secondary-btn-bg-hover-color:#f58e09,
+// Nav Bar
+navbar-text:#f58e09, navbar-color:#3c3c3c,navbar-text-link-color:#f58e09,navbar-cta-color:#f58e09,
+// Global Radius
+global-radius:6px, button-radius: $rem-base *3,box-shadow:$box-shadow,
+// Anchors
+anchor-text-decoration: none, anchor-font-color: primary-color, anchor-font-color-hover: scale-color(#b67a18, $lightness: -14%),
+// Table Variables
+// Background color for the table and even rows
+table-bg: default-white, table-even-row-bg: $body-background-color, background-repeat:no-repeat, masterhead-size:cover,
+// Table cell border style
+table-border-style: solid, table-border-size: 1px, table-border-color: keyline-color,
+// Table head styles
+table-head-bg: primary-color, table-head-font-size: rem-calc(14), table-head-font-color: #222, table-head-font-weight: bold, table-head-padding: rem-calc(8, 10, 10),
+// Row padding and font styles
+table-row-padding: rem-calc(9, 10), table-row-font-size: rem-calc(14), table-row-font-color: #222, table-line-height: rem-calc(18),
+// Display and margin of tables
+table-display: table-cell, table-margin-bottom: rem-calc(20),
+//Animations
+transition-timing: 0.4s,
+// Web Font
+primary-font-style:'Open Sans', primary-font-style-alt:sans-serif, font-weight:light, txt-transform:initial,button-font-weight:500,regular-font-weight:700,bold-font-weight:800,header-case:unset,button-case:uppercase,secondary-font-style: Open Sans,secondary-font-style-alt:sans-serif,
+// Assets
+imgpath: /ProviderPortal/src/assets/generic, ), cenkos-securities: (
+// Default value body font-size for the base rem value.
+// Heading font sizes
+// Template Settings Cenkso Securities
+rem-base:$rem-base, rem-base-half:$rem-base-half, rem-base-third:$rem-base-third, h1-font-size: rem-calc(44), h2-font-size: rem-calc(37), h3-font-size: rem-calc(27), h4-font-size: rem-calc(23), h5-font-size: rem-calc(18), h6-font-size: 1em, letter-spacing:0.02em,paragraph-margin:20px,
+// Colours
+primary-color:#89252f, secondary-color: #e8ab00, terciary-color:#d0d0d0, info-text-color:#89252f,divider-color:#89252f, picky-link-color:#89252f, overlay-color: #211840, keyline-color:#747474, dark-color: #747474, body-background-color: #ffffff, default-white: #ffffff, radiomark-on: #b67a18, radiomark-off: #c7c7c7,body-text-color:#747474,hover-state-color:#c7c7c7,headline-text-color:#89252f,headline-ticker-color:#212529,badge-color:#8F3336,checkmark-color:#ffffff,disabled-color:#b9b9b9,ticker-color:#c1c1c1,badge-text-color:#ffffff,
+//Buttons
+secondary-btn-text-color:#ffffff,secondary-btn-border:none,secondary-btn-bg-color:#e8ab00,secondary-btn-text-hover-color:#ffffff,secondary-btn-bg-hover-color:#89252f,
+// Nav Bar
+navbar-text: #89252f, navbar-color:#d0d0d0,navbar-text-link-color: #89252f,navbar-cta-color:#ffffff,
+// Global Radius
+global-radius:0px, button-radius: 0px,box-shadow:none,
+// Anchors
+anchor-text-decoration: none, anchor-font-color: primary-color, anchor-font-color-hover: scale-color(#b67a18, $lightness: -14%),
+// Table Variables
+// Background color for the table and even rows
+table-bg: default-white, table-even-row-bg: $body-background-color, background-repeat:no-repeat, masterhead-size:cover,
+// Table cell border style
+table-border-style: solid, table-border-size: 1px, table-border-color: keyline-color,
+// Table head styles
+table-head-bg: primary-color, table-head-font-size: rem-calc(14), table-head-font-color: #222, table-head-font-weight: bold, table-head-padding: rem-calc(8, 10, 10),
+// Row padding and font styles
+table-row-padding: rem-calc(9, 10), table-row-font-size: rem-calc(14), table-row-font-color: #222, table-line-height: rem-calc(18),
+// Display and margin of tables
+table-display: table-cell, table-margin-bottom: rem-calc(20),
+//Animations
+transition-timing: 0.4s,
+// Web Font
+primary-font-style: 'Open Sans', primary-font-style-alt:sans-serif, font-weight:light, txt-transform:initial,button-font-weight:500,regular-font-weight:700,bold-font-weight:800,header-case:unset,button-case:capitalize,secondary-font-style: 'Open Sans',secondary-font-style-alt:sans-serif,
+// Assets
+imgpath: /ProviderPortal/ src/assets/cenkos-securities, ), zeus-capital: (
+// Template Settings Zeus Capital
+rem-base:$rem-base, rem-base-half :$rem-base-half,
+// Default value body font-size for the base rem value.
+// Heading font sizes
+h1-font-size: rem-calc(44), h2-font-size: rem-calc(37), h3-font-size: rem-calc(27), h4-font-size: rem-calc(23), h5-font-size: rem-calc(18), h6-font-size: 1em, letter-spacing:0.02em,paragraph-margin:20px,
+// Colours
+primary-color: #000000, secondary-color: #dfdf00, terciary-color: #000000, info-text-color: #000000,divider-color: #dfdf00, picky-link-color:$picky-link-color, overlay-color: #211840, keyline-color: #d2d2d2, dark-color: #212529, body-background-color: $body-background-color, default-white: #ffffff,radiomark-on: #000000, radiomark-off: #c7c7c7,body-text-color:#000000,hover-state-color:#c7c7c7,headline-text-color:#000000,headline-ticker-color:#000000,badge-color:#000000,checkmark-color:#dfdf00,disabled-color:#b9b9b9,ticker-color:#c1c1c1,badge-text-color:#dfdf00,
+//Buttons
+secondary-btn-text-color:#000000,secondary-btn-border:2px solid #000000,secondary-btn-bg-color:transparent,secondary-btn-text-hover-color:#dfdf00,secondary-btn-bg-hover-color:#000000,
+// Nav Bar
+navbar-text: #000000, navbar-color:#f8f8f8,navbar-text-link-color:#000000,navbar-cta-color:#000000,
+// Global Radius
+global-radius:6px, button-radius: $rem-base *3, box-shadow:$box-shadow,
+// Anchors
+anchor-text-decoration: none, anchor-font-color: primary-color, anchor-font-color-hover: scale-color(#000000, $lightness: -14%),
+// Table Variables
+// Background color for the table and even rows
+table-bg: default-white, table-even-row-bg:$body-background-color,background-repeat:no-repeat,masterhead-size:cover,
+// Table cell border style
+table-border-style: solid, table-border-size: 1px, table-border-color: keyline-color,
+// Table head styles
+table-head-bg: primary-color, table-head-font-size: rem-calc(14), table-head-font-color: #222, table-head-font-weight: bold, table-head-padding: rem-calc(8, 10, 10),
+// Row padding and font styles
+table-row-padding: rem-calc(9, 10), table-row-font-size: rem-calc(14), table-row-font-color: #222, table-line-height: rem-calc(18),
+// Display and margin of tables
+table-display: table-cell, table-margin-bottom: rem-calc(20),
+//Animations
+transition-timing: 0.4s,
+// Web Font
+primary-style:' Open Sans', primary-font-style-alt:sans-serif, font-weight:light, txt-transform:initial,button-font-weight:500,regular-font-weight:700,bold-font-weight:800,header-case:unset,button-case:uppercase,secondary-style:Open Sans,secondary-font-style-alt:sans-serif,
+// Assets
+imgpath: /ProviderPortal/src/assets/zeus-capital, ), sp-angel: (
+// Template Settings SP Angel
+rem-base:$rem-base, rem-base-half :$rem-base-half,
+// Default value body font-size for the base rem value.
+// Heading font sizes
+h1-font-size: rem-calc(44), h2-font-size: rem-calc(37), h3-font-size: rem-calc(27), h4-font-size: rem-calc(23), h5-font-size: rem-calc(18), h6-font-size: 1em, letter-spacing:0.02em,paragraph-margin:20px,
+// Colours
+primary-color: #babf10, secondary-color:#407cca, terciary-color: #334d6e, info-text-color: #334d6e,divider-color:#407cca, picky-link-color:$picky-link-color, overlay-color: #211840, keyline-color: #d2d2d2, dark-color: #212529, body-background-color: #ffffff, default-white: #ffffff,radiomark-on: #babf10, radiomark-off: #efefef, body-text-color:#334d6e,hover-state-color:#c7c7c7,headline-text-color:#407cca,headline-ticker-color:#407cca,badge-color:#334d6e,checkmark-color:#ffffff,disabled-color:#b9b9b9,ticker-color:#c1c1c1,badge-text-color:#ffffff,
+//Buttons
+secondary-btn-text-color:#407cca,secondary-btn-border:2px solid #407cca,secondary-btn-bg-color:transparent,secondary-btn-text-hover-color:#ffffff,secondary-btn-bg-hover-color:#babf10,
+// Nav Bar
+navbar-text:#334d6e,navbar-color:#f8f8f8,navbar-text-link-color:#babf10,navbar-cta-color:#334d6e,
+// Global Radius
+global-radius:6px, button-radius:4px, box-shadow:$box-shadow,
+// Anchors
+anchor-text-decoration:none, anchor-font-color: primary-color, anchor-font-color-hover: scale-color(#000000, $lightness: -14%),
+// Table Variables
+// Background color for the table and even rows
+table-bg: default-white, table-even-row-bg: body-background-color,background-repeat:no-repeat,masterhead-size:cover,
+// Table cell border style
+table-border-style: solid, table-border-size: 1px, table-border-color: keyline-color,
+// Table head styles
+table-head-bg: primary-color, table-head-font-size: rem-calc(14), table-head-font-color: #222, table-head-font-weight: bold, table-head-padding: rem-calc(8, 10, 10),
+// Row padding and font styles
+table-row-padding: rem-calc(9, 10), table-row-font-size: rem-calc(14), table-row-font-color: #222, table-line-height: rem-calc(18),
+// Display and margin of tables
+table-display: table-cell, table-margin-bottom: rem-calc(20),
+//Animations
+transition-timing: 0.4s,
+// Web Font
+primary-font-style:'Muli', primary-font-style-alt:sans-serif, font-weight:light,txt-transform:initial,button-font-weight:400,regular-font-weight:700,bold-font-weight:900,header-case:unset,button-case:uppercase,secondary-font-style:Muli,secondary-font-style-alt:sans-serif,
+// Assets
+imgpath: /ProviderPortal/src/assets/sp-angel, ), tamesis-partners: (
+// Template Settings Tamesis
+rem-base:$rem-base, rem-base-half :$rem-base-half,
+// Default value body font-size for the base rem value.
+// Heading font sizes
+h1-font-size: rem-calc(44), h2-font-size: rem-calc(37), h3-font-size: rem-calc(27), h4-font-size: rem-calc(23), h5-font-size: rem-calc(18), h6-font-size: 1em, letter-spacing:0.15em,paragraph-margin:20px,
+// Colours
+primary-color: #ce5127, secondary-color:#606156, terciary-color: #606156,info-text-color: #606156, divider-color:#606156, picky-link-color:$picky-link-color, overlay-color: #211840, keyline-color: #606156, dark-color: #606156, body-background-color:#fafafa,default-white: #ffffff,radiomark-on: #ce5127, radiomark-off: #023053, body-text-color:#606156,hover-state-color:#c7c7c7,headline-text-color:#606156,headline-ticker-color:#ce5127,badge-color:#023053,checkmark-color:#ffffff,disabled-color:#f2f2f2,ticker-color:#c1c1c1,badge-text-color:#ffffff,
+//Buttons
+secondary-btn-text-color:#606156,secondary-btn-border:2px solid #ce5127,secondary-btn-bg-color:transparent, secondary-btn-text-hover-color:#ffffff,secondary-btn-bg-hover-color:#ce5127,
+// Nav Bar
+navbar-text:#ce5127, navbar-color:#f8f8f8,navbar-text-link-color:#ce5127,navbar-cta-color:#ce5127,
+// Global Radius
+global-radius:6px, button-radius:4px, box-shadow:$box-shadow,
+// Anchors
+anchor-text-decoration: none, anchor-font-color: primary-color, anchor-font-color-hover: scale-color(#000000, $lightness: -14%),
+// Table Variables
+// Background color for the table and even rows
+table-bg: default-white, table-even-row-bg: $body-background-color,background-repeat:no-repeat,masterhead-size:cover,
+// Table cell border style
+table-border-style: solid, table-border-size: 1px, table-border-color: keyline-color,
+// Table head styles
+table-head-bg: primary-color, table-head-font-size: rem-calc(14), table-head-font-color: #222, table-head-font-weight: bold, table-head-padding: rem-calc(8, 10, 10),
+// Row padding and font styles
+table-row-padding: rem-calc(9, 10), table-row-font-size: rem-calc(14), table-row-font-color: #222, table-line-height: rem-calc(18),
+// Display and margin of tables
+table-display: table-cell, table-margin-bottom: rem-calc(20),
+//Animations
+transition-timing: 0.4s,
+// Web Font
+primary-font-style:'Nunito Sans', primary-font-style-alt:sans-serif, font-weight:900, txt-transform:uppercase,button-font-weight:400,regular-font-weight:600,bold-font-weight:700,header-case:unset,button-case:uppercase,secondary-font-style:'Nunito Sans',secondary-font-style-alt:sans-serif,
+// Assets
+imgpath: /ProviderPortal/src/assets/tamesis-partners, ), finncap: (
+// Default value body font-size for the base rem value.
+// Heading font sizes
+// Template Settings Finncap
+rem-base:$rem-base, rem-base-half :$rem-base-half, h1-font-size: rem-calc(44), h2-font-size: rem-calc(37), h3-font-size: rem-calc(27), h4-font-size: rem-calc(23), h5-font-size: rem-calc(18), h6-font-size: 1em, letter-spacing:0.1px,paragraph-margin:30px,
+// Colours
+primary-color: #071B27, secondary-color: #c7c7c7, terciary-color: #071B27, info-text-color: #071B27,divider-color: #c7c7c7, picky-link-color:$picky-link-color, overlay-color: #211840, keyline-color: #d2d2d2, dark-color: #071b27, body-background-color: #ffffff, default-white: #ffffff, radiomark-on: #1A4267, radiomark-off: #c7c7c7,body-text-color:#2A2E31,hover-state-color:#c7c7c7,headline-text-color:#023053,headline-ticker-color:#1A4267,badge-color:#1A4267,checkmark-color:#ffffff,disabled-color:#b9b9b9,ticker-color:#c1c1c1,badge-text-color:#ffffff,
+//Buttons
+secondary-btn-text-color:#071B27,secondary-btn-border:2px solid #071B27,secondary-btn-bg-color:transparent,secondary-btn-text-hover-color:#ffffff,secondary-btn-bg-hover-color: #071B27,
+// Nav Bar
+navbar-text:#071B27, navbar-color:#ffffff,navbar-text-link-color:#071B27,navbar-cta-color:#071B27,
+// Global Radius
+global-radius:0, button-radius:0, box-shadow:$box-shadow,
+// Anchors
+anchor-text-decoration: none, anchor-font-color: primary-color, anchor-font-color-hover: scale-color(#b67a18, $lightness: -14%),
+// Table Variables
+// Background color for the table and even rows
+table-bg: default-white, table-even-row-bg: body-background-color,background-repeat:repeat,masterhead-size:initial,
+// Table cell border style
+table-border-style: solid, table-border-size: 1px, table-border-color: keyline-color,
+// Table head styles
+table-head-bg: primary-color, table-head-font-size: rem-calc(14), table-head-font-color: #222, table-head-font-weight: bold, table-head-padding: rem-calc(8, 10, 10),
+// Row padding and font styles
+table-row-padding: rem-calc(9, 10), table-row-font-size: rem-calc(14), table-row-font-color: #222, table-line-height: rem-calc(18),
+// Display and margin of tables
+table-display: table-cell, table-margin-bottom: rem-calc(20),
+//Animations
+transition-timing: 0.4s,
+// Web Font
+primary-font-style:'ABCDiatype', primary-font-style-alt:sans-serif, font-weight:inherit, txt-transform:initial,button-font-weight:inherit,regular-font-weight:inherit,bold-font-weight:700,header-case:unset,button-case:uppercase,secondary-font-style:ABCDiatype,secondary-font-style-alt:sans-serif,
+// Assets
+imgpath: /ProviderPortal/src/assets/finncap, ), auctus-advisors: (
+// Default value body font-size for the base rem value.
+// Heading font sizes
+// Template Settings Auctus Growth
+rem-base:$rem-base, rem-base-half :$rem-base-half, h1-font-size: rem-calc(44), h2-font-size: rem-calc(37), h3-font-size: rem-calc(27), h4-font-size: rem-calc(23), h5-font-size: rem-calc(18), h6-font-size: 1em, letter-spacing:2px,paragraph-margin:20px,
+// Colours
+primary-color:#1b1b1b, secondary-color:#0075c1, terciary-color: #023053, info-text-color: #023053,divider-color:#0075c1, picky-link-color:$picky-link-color, overlay-color: #211840, keyline-color: #d2d2d2, dark-color: #071b27, body-background-color: #ffffff, default-white: #ffffff, radiomark-on: #0075c1, radiomark-off: #c7c7c7,body-text-color:#1b1b1b,hover-state-color:#c7c7c7,headline-text-color:#1b1b1b,headline-ticker-color:#0075c1,badge-color:#023053,checkmark-color:#ffffff,disabled-color:#b9b9b9,ticker-color:#c1c1c1,badge-text-color:#ffffff,
+//Buttons
+secondary-btn-text-color:#0075c1,secondary-btn-border:2px solid #0075c1,secondary-btn-bg-color:transparent,secondary-btn-text-hover-color:#ffffff,secondary-btn-bg-hover-color:#0075c1,
+// Nav Bar
+navbar-text:#1b1b1b,navbar-color:#f8f8f8,navbar-text-link-color:#1b1b1b,navbar-cta-color:#1b1b1b,
+// Global Radius
+global-radius:6px, button-radius:4em, box-shadow:$box-shadow,
+// Anchors
+anchor-text-decoration: none, anchor-font-color: primary-color, anchor-font-color-hover: scale-color(#b67a18, $lightness: -14%),
+// Table Variables
+// Background color for the table and even rows
+table-bg: default-white, table-even-row-bg: body-background-color,background-repeat:repeat,masterhead-size:initial,
+// Table cell border style
+table-border-style: solid, table-border-size: 1px, table-border-color: keyline-color,
+// Table head styles
+table-head-bg: primary-color, table-head-font-size: rem-calc(14), table-head-font-color: #222, table-head-font-weight:bold, table-head-padding: rem-calc(8, 10, 10),
+// Row padding and font styles
+table-row-padding: rem-calc(9, 10), table-row-font-size: rem-calc(14), table-row-font-color: #222, table-line-height: rem-calc(18),
+// Display and margin of tables
+table-display: table-cell, table-margin-bottom: rem-calc(20),
+//Animations
+transition-timing: 0.4s,
+// Web Font
+primary-font-style: 'Open Sans', primary-font-style-alt:sans-serif, font-weight:400, txt-transform:initial,button-font-weight:400,regular-font-weight:700,bold-font-weight:700,header-case:unset,button-case:uppercase,secondary-font-style:'Open Sans',secondary-font-style-alt:sans-serif,
+// Assets
+imgpath: /ProviderPortal/src/assets/auctus-advisors, ), the-life-sciences-division: (
+// Default value body font-size for the base rem value.
+// Heading font sizes
+// Template Settings Lide Sciences Division
+rem-base:$rem-base, rem-base-half :$rem-base-half, h1-font-size: rem-calc(44), h2-font-size: rem-calc(37), h3-font-size: rem-calc(27), h4-font-size: rem-calc(23), h5-font-size: rem-calc(18), h6-font-size: 1em, letter-spacing:0.02em,paragraph-margin:20px,
+// Colours
+primary-color:#06b5c1, secondary-color:#8dc045, terciary-color:#023053,info-text-color:#023053,divider-color:#8dc045, picky-link-color:$picky-link-color, overlay-color: #211840, keyline-color: #d2d2d2, dark-color: #071b27, body-background-color: #ffffff, default-white: #ffffff, radiomark-on: #8dc045, radiomark-off: #c7c7c7,body-text-color:#7a7c81,hover-state-color:#c7c7c7,headline-text-color:#06b5c1,headline-ticker-color:#8dc045,badge-color:#8dc045,checkmark-color:#ffffff,disabled-color:#b9b9b9,ticker-color:#c1c1c1,badge-text-color:#ffffff,
+//Buttons
+secondary-btn-text-color:#8dc045, secondary-btn-border:2px solid #8dc045,secondary-btn-bg-color:transparent,secondary-btn-text-hover-color:#ffffff,secondary-btn-bg-hover-color:#8dc045,
+// Nav Bar
+navbar-text:#7a7c81,navbar-color:#f8f8f8,navbar-text-link-color:#06b5c1,navbar-cta-color:#7a7c81,
+// Global Radius
+global-radius:8px, button-radius:8px, box-shadow:$box-shadow,
+// Anchors
+anchor-text-decoration: none, anchor-font-color: primary-color, anchor-font-color-hover: scale-color(#b67a18, $lightness: -14%),
+// Table Variables
+// Background color for the table and even rows
+table-bg: default-white, table-even-row-bg: body-background-color,background-repeat:repeat,masterhead-size:initial,
+// Table cell border style
+table-border-style: solid, table-border-size: 1px, table-border-color: keyline-color,
+// Table head styles
+table-head-bg: primary-color, table-head-font-size: rem-calc(14), table-head-font-color: #222, table-head-font-weight: bold, table-head-padding: rem-calc(8, 10, 10),
+// Row padding and font styles
+table-row-padding: rem-calc(9, 10), table-row-font-size: rem-calc(14), table-row-font-color: #222, table-line-height: rem-calc(18),
+// Display and margin of tables
+table-display: table-cell, table-margin-bottom: rem-calc(20),
+//Animations
+transition-timing: 0.4s,
+// Web Font
+primary-font-style:'Lato',primary-font-style-alt:sans-serif, font-weight:400, txt-transform:initial,button-font-weight:300,regular-font-weight:400,bold-font-weight:800,header-case:unset,button-case:uppercase, secondary-font-style:'Lato',secondary-font-style-alt:sans-serif,
+// Assets
+imgpath: /ProviderPortal/src/assets/the-life-sciences-division, ), whireland: (
+// Default value body font-size for the base rem value.
+// Heading font sizes
+// Template Settings WHIRELAND
+rem-base:$rem-base, rem-base-half :$rem-base-half, h1-font-size: rem-calc(44), h2-font-size: rem-calc(37), h3-font-size: rem-calc(27), h4-font-size: rem-calc(23), h5-font-size: rem-calc(18), h6-font-size: 1em, letter-spacing:0.02em,paragraph-margin:20px,
+// Colours
+primary-color:#467a7b, secondary-color:#467a7b, terciary-color:#467a7b,info-text-color:#467a7b,divider-color:#467a7b, picky-link-color:$picky-link-color, overlay-color:#211840, keyline-color: #d2d2d2, dark-color:#333333, body-background-color: #ffffff, default-white: #ffffff, radiomark-on: #10bbef, radiomark-off: #c7c7c7,body-text-color:#333333,hover-state-color:#c7c7c7,headline-text-color:#161616,headline-ticker-color:#10bbef,badge-color:#10bbef,checkmark-color:#ffffff,disabled-color:#b9b9b9,ticker-color:#c1c1c1,badge-text-color:#ffffff,
+//Buttons
+secondary-btn-text-color:#467a7b, secondary-btn-border:2px solid #467a7b,secondary-btn-bg-color:transparent,secondary-btn-text-hover-color:#ffffff,secondary-btn-bg-hover-color:#467a7b,
+// Nav Bar
+navbar-text:#333333,navbar-color:#f8f8f8,navbar-text-link-color:#467a7b,navbar-cta-color:#333333,
+// Global Radius
+global-radius:8px, button-radius:8px, box-shadow:$box-shadow,
+// Anchors
+anchor-text-decoration: none, anchor-font-color: primary-color, anchor-font-color-hover: scale-color(#b67a18, $lightness: -14%),
+// Table Variables
+// Background color for the table and even rows
+table-bg: default-white, table-even-row-bg: body-background-color,background-repeat:repeat,masterhead-size:initial,
+// Table cell border style
+table-border-style: solid, table-border-size: 1px, table-border-color: keyline-color,
+// Table head styles
+table-head-bg: primary-color, table-head-font-size: rem-calc(14), table-head-font-color: #222, table-head-font-weight: bold, table-head-padding: rem-calc(8, 10, 10),
+// Row padding and font styles
+table-row-padding: rem-calc(9, 10), table-row-font-size: rem-calc(14), table-row-font-color: #222, table-line-height: rem-calc(18),
+// Display and margin of tables
+table-display: table-cell, table-margin-bottom: rem-calc(20),
+//Animations
+transition-timing: 0.4s,
+// Web Font
+primary-font-style:'Source Sans Pro', primary-font-style-alt:sans-serif, font-weight:300, txt-transform:initial,button-font-weight:300,regular-font-weight:400,bold-font-weight:600,header-case:unset,button-case:uppercase, secondary-font-style:'Source Sans Pro',secondary-font-style-alt:sans-serif,
+// Assets
+imgpath: /ProviderPortal/src/assets/vsa-capital, ), vsa-capital: (
+// Default value body font-size for the base rem value.
+// Heading font sizes
+// Template Settings VSA Capital
+rem-base:$rem-base, rem-base-half :$rem-base-half, h1-font-size: rem-calc(44), h2-font-size: rem-calc(37), h3-font-size: rem-calc(27), h4-font-size: rem-calc(23), h5-font-size: rem-calc(18), h6-font-size: 1em, letter-spacing:0.02em,paragraph-margin:20px,
+// Colours
+primary-color:#e31837, secondary-color:#000000, terciary-color:#161616,info-text-color:#161616,divider-color:#000000, picky-link-color:$picky-link-color, overlay-color:#211840, keyline-color: #d2d2d2, dark-color:#161616, body-background-color: #ffffff, default-white: #ffffff, radiomark-on:#e31837, radiomark-off: #c7c7c7,body-text-color:#161616,hover-state-color:#c7c7c7,headline-text-color:#161616,headline-ticker-color:#e31837,badge-color:#e31837,checkmark-color:#ffffff,disabled-color:#b9b9b9,ticker-color:#c1c1c1,badge-text-color:#ffffff,
+//Buttons
+secondary-btn-text-color:#000000,secondary-btn-border:2px solid #000000,secondary-btn-bg-color:transparent,secondary-btn-text-hover-color:#ffffff,secondary-btn-bg-hover-color:#e31837,
+// Nav Bar
+navbar-text:#161616,navbar-color:#f8f8f8,navbar-text-link-color:#e31837,navbar-cta-color:#161616,
+// Global Radius
+global-radius:8px, button-radius:8px, box-shadow:$box-shadow,
+// Anchors
+anchor-text-decoration: none, anchor-font-color: primary-color, anchor-font-color-hover: scale-color(#b67a18, $lightness: -14%),
+// Table Variables
+// Background color for the table and even rows
+table-bg: default-white, table-even-row-bg: body-background-color,background-repeat:repeat,masterhead-size:initial,
+// Table cell border style
+table-border-style: solid, table-border-size: 1px, table-border-color: keyline-color,
+// Table head styles
+table-head-bg: primary-color, table-head-font-size: rem-calc(14), table-head-font-color: #222, table-head-font-weight: bold, table-head-padding: rem-calc(8, 10, 10),
+// Row padding and font styles
+table-row-padding: rem-calc(9, 10), table-row-font-size: rem-calc(14), table-row-font-color: #222, table-line-height: rem-calc(18),
+// Display and margin of tables
+table-display: table-cell, table-margin-bottom: rem-calc(20),
+//Animations
+transition-timing: 0.4s,
+// Web Font
+primary-font-style: Open Sans, primary-font-style-alt:sans-serif, font-weight:400, txt-transform:initial,button-font-weight:400,regular-font-weight:600,bold-font-weight:800,header-case:unset,button-case:uppercase, secondary-font-style: Open Sans,secondary-font-style-alt:sans-serif,
+// Assets
+imgpath: /ProviderPortal/src/assets/vsa-capital, ), alternative-resource-capital: (
+// Default value body font-size for the base rem value.
+// Heading font sizes
+// Template Settings Alternative Resources Capital
+rem-base:$rem-base, rem-base-half :$rem-base-half, h1-font-size: rem-calc(44), h2-font-size: rem-calc(37), h3-font-size: rem-calc(27), h4-font-size: rem-calc(23), h5-font-size: rem-calc(18), h6-font-size: 1em, letter-spacing:0.02em,paragraph-margin:20px,
+// Colours
+primary-color:#00a1e4, secondary-color:#00a1e4, terciary-color:#00a1e4,info-text-color:#00a1e4,divider-color:#00a1e4, picky-link-color:$picky-link-color, overlay-color:#211840, keyline-color: #d2d2d2, dark-color:#333333, body-background-color: #ffffff, default-white: #ffffff, radiomark-on: #00a1e4, radiomark-off: #c7c7c7,body-text-color:#333333,hover-state-color:#c7c7c7,headline-text-color:#161616,headline-ticker-color:#00a1e4,badge-color:#00a1e4,checkmark-color:#ffffff,disabled-color:#ffffff,ticker-color:#c1c1c1,badge-text-color:#ffffff,
+//Buttons
+secondary-btn-text-color:#00a1e4, secondary-btn-border:2px solid #00a1e4,secondary-btn-bg-color:transparent,secondary-btn-text-hover-color:#ffffff,secondary-btn-bg-hover-color:#00a1e4,
+// Nav Bar
+navbar-text:#333333,navbar-color:#f8f8f8,navbar-text-link-color:#00a1e4,navbar-cta-color:#333333,
+// Global Radius
+global-radius:8px, button-radius:8px, box-shadow:$box-shadow,
+// Anchors
+anchor-text-decoration: none, anchor-font-color: primary-color, anchor-font-color-hover: scale-color(#00a1e4, $lightness: -14%),
+// Table Variables
+// Background color for the table and even rows
+table-bg: default-white, table-even-row-bg: body-background-color,background-repeat:repeat,masterhead-size:initial,
+// Table cell border style
+table-border-style: solid, table-border-size: 1px, table-border-color: keyline-color,
+// Table head styles
+table-head-bg: primary-color, table-head-font-size: rem-calc(14), table-head-font-color: #222, table-head-font-weight: bold, table-head-padding: rem-calc(8, 10, 10),
+// Row padding and font styles
+table-row-padding: rem-calc(9, 10), table-row-font-size: rem-calc(14), table-row-font-color: #222, table-line-height: rem-calc(18),
+// Display and margin of tables
+table-display: table-cell, table-margin-bottom: rem-calc(20),
+//Animations
+transition-timing: 0.4s,
+// Web Font
+primary-font-style:'Source Sans Pro', primary-font-style-alt:sans-serif, font-weight:300, txt-transform:initial,button-font-weight:300,regular-font-weight:400,bold-font-weight:600,header-case:unset,button-case:uppercase, secondary-font-style:'Source Sans Pro',secondary-font-style-alt:sans-serif,
+// Assets
+imgpath: /ProviderPortal/src/assets/alternative-resource-capital, ), couloir-capital: (
+// Default value body font-size for the base rem value.
+// Heading font sizes
+// Template Settings Couloir Capital
+rem-base:$rem-base, rem-base-half :$rem-base-half, h1-font-size: rem-calc(44), h2-font-size: rem-calc(37), h3-font-size: rem-calc(27), h4-font-size: rem-calc(23), h5-font-size: rem-calc(18), h6-font-size: 1em, letter-spacing:0.02em,paragraph-margin:20px,
+// Colours
+primary-color:#6ea4ca, secondary-color:#0c3c60, terciary-color:#0c3c60,info-text-color:#0c3c60,divider-color:#0c3c60, picky-link-color:$picky-link-color, overlay-color:#211840, keyline-color: #d2d2d2, dark-color:#0c3c60, body-background-color: #ffffff, default-white: #ffffff, radiomark-on:#0c3c60, radiomark-off: #c7c7c7,body-text-color:#0c3c60,hover-state-color:#b2dcfa,headline-text-color:#0c3c60,headline-ticker-color:#0c3c60,badge-color:#0c3c60,checkmark-color:#ffffff,disabled-color:#b9b9b9,ticker-color:#6ea4ca,badge-text-color:#ffffff,
+//Buttons
+secondary-btn-text-color:#0c3c60, secondary-btn-border:2px solid #0c3c60,secondary-btn-bg-color:transparent,secondary-btn-text-hover-color:#ffffff,secondary-btn-bg-hover-color:#6ea4ca,
+// Nav Bar
+navbar-text:#0c3c60,navbar-color:#f8f8f8,navbar-text-link-color:#0c3c60,navbar-cta-color:#0c3c60,
+// Global Radius
+global-radius:10px, button-radius:10px, box-shadow:$box-shadow,
+// Anchors
+anchor-text-decoration: none, anchor-font-color: primary-color, anchor-font-color-hover: scale-color(#b67a18, $lightness: -14%),
+// Table Variables
+// Background color for the table and even rows
+table-bg: default-white, table-even-row-bg: body-background-color,background-repeat:repeat,masterhead-size:initial,
+// Table cell border style
+table-border-style: solid, table-border-size: 1px, table-border-color: keyline-color,
+// Table head styles
+table-head-bg: primary-color, table-head-font-size: rem-calc(14), table-head-font-color: #222, table-head-font-weight: bold, table-head-padding: rem-calc(8, 10, 10),
+// Row padding and font styles
+table-row-padding: rem-calc(9, 10), table-row-font-size: rem-calc(14), table-row-font-color: #222, table-line-height: rem-calc(18),
+// Display and margin of tables
+table-display: table-cell, table-margin-bottom: rem-calc(20),
+//Animations
+transition-timing: 0.4s,
+// Web Font
+primary-font-style: Raleway, primary-font-style-alt:sans-serif, font-weight:100, txt-transform:initial,button-font-weight:100,regular-font-weight:600,bold-font-weight:400,header-case:uppercase,button-case:initial, secondary-font-style:Raleway,secondary-font-style-alt:sans-serif,
+// Assets
+imgpath: /ProviderPortal/src/assets/couloir-capital, ),first-sentinel: (
+// Default value body font-size for the base rem value.
+// Heading font sizes
+// Template Settings First Sentinel
+rem-base:$rem-base, rem-base-half :$rem-base-half, h1-font-size: rem-calc(44), h2-font-size: rem-calc(37), h3-font-size: rem-calc(27), h4-font-size: rem-calc(23), h5-font-size: rem-calc(18), h6-font-size: 1em, letter-spacing:0.02em,paragraph-margin:20px,
+// Colours
+primary-color:#48584d, secondary-color:#000000, terciary-color:#000000,info-text-color:#000000,divider-color:#000000, picky-link-color:$picky-link-color,overlay-color:#211840, keyline-color: #d2d2d2, dark-color:#000000, body-background-color: #ffffff, default-white: #ffffff, radiomark-on:#48584d, radiomark-off: #c7c7c7,body-text-color:#0c3c60,hover-state-color:#48584d,headline-text-color:#0c3c60,headline-ticker-color:#48584d,badge-color:#48584d,checkmark-color:#ffffff,disabled-color:#b9b9b9,ticker-color:#000000,badge-text-color:#ffffff,
+//Buttons
+secondary-btn-text-color:#000000,secondary-btn-border:2px solid #000000,secondary-btn-bg-color:transparent,secondary-btn-text-hover-color:#ffffff,secondary-btn-bg-hover-color:#48584d,
+// Nav Bar
+navbar-text:#000000,navbar-color:#f8f8f8,navbar-text-link-color:#48584d,navbar-cta-color:#000000,
+// Global Radius
+global-radius:2px, button-radius:2px, box-shadow:$box-shadow,
+// Anchors
+anchor-text-decoration: none, anchor-font-color: primary-color, anchor-font-color-hover: scale-color(#b67a18, $lightness: -14%),
+// Table Variables
+// Background color for the table and even rows
+table-bg: default-white, table-even-row-bg: body-background-color,background-repeat:repeat,masterhead-size:initial,
+// Table cell border style
+table-border-style: solid, table-border-size: 1px, table-border-color: keyline-color,
+// Table head styles
+table-head-bg: primary-color, table-head-font-size: rem-calc(14), table-head-font-color: #222, table-head-font-weight: bold, table-head-padding: rem-calc(8, 10, 10),
+// Row padding and font styles
+table-row-padding: rem-calc(9, 10), table-row-font-size: rem-calc(14), table-row-font-color: #222, table-line-height: rem-calc(18),
+// Display and margin of tables
+table-display: table-cell, table-margin-bottom: rem-calc(20),
+//Animations
+transition-timing: 0.4s,
+// Web Font
+primary-font-style: PlayfairDisplay, primary-font-style-alt:sans-serif, font-weight:inherit, txt-transform:initial,button-font-weight:100,regular-font-weight:600,bold-font-weight:400,header-case:initial,button-case:initial, secondary-font-style:Montserrat,secondary-font-style-alt:sans-serif,
+// Assets
+imgpath: /ProviderPortal/src/assets/first-sentinel, ),inbound-capital: (
+// Default value body font-size for the base rem value.
+// Heading font sizes
+// Template Settings Inbound Capital
+rem-base:$rem-base, rem-base-half :$rem-base-half, h1-font-size: rem-calc(44), h2-font-size: rem-calc(37), h3-font-size: rem-calc(27), h4-font-size: rem-calc(23), h5-font-size: rem-calc(18), h6-font-size: 1em, letter-spacing:0.02em,paragraph-margin:16px,
+// Colours
+primary-color:#2B6CA3, secondary-color:#E09509, terciary-color:#000000,info-text-color:#000000,divider-color:#E09509, picky-link-color:$picky-link-color,overlay-color:#211840, keyline-color: #d2d2d2, dark-color:#2F2E2E, body-background-color: #ffffff, default-white: #ffffff, radiomark-on:#2B6CA3, radiomark-off: #c7c7c7,body-text-color:#2F2E2E,hover-state-color:#2B6CA3,headline-text-color:#2F2E2E,headline-ticker-color:#E09509,badge-color:#E09509,checkmark-color:#ffffff,disabled-color:#b9b9b9,ticker-color:#000000,badge-text-color:#ffffff,
+//Buttons
+secondary-btn-text-color:#E09509,secondary-btn-border:2px solid #E09509,secondary-btn-bg-color:transparent,secondary-btn-text-hover-color:#ffffff,secondary-btn-bg-hover-color:#2B6CA3,
+// Nav Bar
+navbar-text:#000000,navbar-color:#2F2E2E,navbar-text-link-color:#ffffff,navbar-cta-color:#E09509,
+// Global Radius
+global-radius:2px, button-radius:2px, box-shadow:$box-shadow,
+// Anchors
+anchor-text-decoration: none, anchor-font-color: primary-color, anchor-font-color-hover: scale-color(#b67a18, $lightness: -14%),
+// Table Variables
+// Background color for the table and even rows
+table-bg: default-white, table-even-row-bg: body-background-color,background-repeat:repeat,masterhead-size:initial,
+// Table cell border style
+table-border-style: solid, table-border-size: 1px, table-border-color: keyline-color,
+// Table head styles
+table-head-bg: primary-color, table-head-font-size: rem-calc(14), table-head-font-color: #222, table-head-font-weight: bold, table-head-padding: rem-calc(8, 10, 10),
+// Row padding and font styles
+table-row-padding: rem-calc(9, 10), table-row-font-size: rem-calc(14), table-row-font-color: #222, table-line-height: rem-calc(18),
+// Display and margin of tables
+table-display: table-cell, table-margin-bottom: rem-calc(20),
+//Animations
+transition-timing: 0.4s,
+// Web Font
+primary-font-style:Roboto,primary-font-style-alt:sans-serif, font-weight:inherit, txt-transform:initial,button-font-weight:200,regular-font-weight:200,bold-font-weight:500,header-case:initial,button-case:initial, secondary-font-style:Roboto,secondary-font-style-alt:sans-serif,
+// Assets
+imgpath: /ProviderPortal/src/assets/inbound-capital, ), shard-capital: (
+// Default value body font-size for the base rem value.
+// Heading font sizes
+// Template Settings Shard Capital
+rem-base:$rem-base, rem-base-half :$rem-base-half, h1-font-size: rem-calc(44), h2-font-size: rem-calc(37), h3-font-size: rem-calc(27), h4-font-size: rem-calc(23), h5-font-size: rem-calc(18), h6-font-size: 1em, letter-spacing:0.02em,paragraph-margin:20px,
+// Colours
+primary-color:#003c55, secondary-color:#000000, terciary-color:#161616,info-text-color:#161616,divider-color:#000000, picky-link-color:$picky-link-color, overlay-color:#211840, keyline-color: #d2d2d2, dark-color:#444444, body-background-color: #ffffff, default-white: #ffffff, radiomark-on:#003c55, radiomark-off: #c7c7c7,body-text-color:#444,hover-state-color:#c7c7c7,headline-text-color:#003c55,headline-ticker-color:#003c55,badge-color:#003c55,checkmark-color:#ffffff,disabled-color:#b9b9b9,ticker-color:#c1c1c1,badge-text-color:#ffffff,
+//Buttons
+secondary-btn-text-color:#000000,secondary-btn-border:2px solid #000000,secondary-btn-bg-color:transparent,secondary-btn-text-hover-color:#000000,secondary-btn-bg-hover-color:#003c55#f58e09,
+// Nav Bar
+navbar-text:#161616,navbar-color:#f8f8f8,navbar-text-link-color:#003c55,navbar-cta-color:#000000,
+// Global Radius
+global-radius:4px, button-radius:4px, box-shadow:$box-shadow,
+// Anchors
+anchor-text-decoration: none, anchor-font-color: primary-color, anchor-font-color-hover: scale-color(#003c55, $lightness: -14%),
+// Table Variables
+// Background color for the table and even rows
+table-bg: default-white, table-even-row-bg: body-background-color,background-repeat:repeat,masterhead-size:initial,
+// Table cell border style
+table-border-style: solid, table-border-size: 1px, table-border-color: keyline-color,
+// Table head styles
+table-head-bg: primary-color, table-head-font-size: rem-calc(14), table-head-font-color: #222, table-head-font-weight: bold, table-head-padding: rem-calc(8, 10, 10),
+// Row padding and font styles
+table-row-padding: rem-calc(9, 10), table-row-font-size: rem-calc(14), table-row-font-color: #222, table-line-height: rem-calc(18),
+// Display and margin of tables
+table-display: table-cell, table-margin-bottom: rem-calc(20),
+//Animations
+transition-timing: 0.4s,
+// Web Font
+primary-font-style:Montserrat, primary-font-style-alt:sans-serif, font-weight:400, txt-transform:initial,button-font-weight:400,regular-font-weight:100,bold-font-weight:200,header-case:unset,button-case:uppercase,secondary-font-style:Lato,secondary-font-style-alt:sans-serif,
+// Assets
+imgpath: /ProviderPortal/src/assets/shard-capital, ), shore-capital: (
+// Default value body font-size for the base rem value.
+// Heading font sizes
+// Template Settings Shore Capital
+rem-base:$rem-base, rem-base-half :$rem-base-half, h1-font-size: rem-calc(44), h2-font-size: rem-calc(37), h3-font-size: rem-calc(27), h4-font-size: rem-calc(23), h5-font-size: rem-calc(18), h6-font-size: 1em, letter-spacing:0.02em,paragraph-margin:20px,
+// Colours
+primary-color:#003c55, secondary-color:#000000, terciary-color:#161616,info-text-color:#161616,divider-color:#000000, picky-link-color:$picky-link-color, overlay-color:#211840, keyline-color: #d2d2d2, dark-color:#444444, body-background-color:$body-background-color, default-white: #ffffff, radiomark-on:#003c55, radiomark-off: #c7c7c7,body-text-color:#444,hover-state-color:#c7c7c7,headline-text-color:#003c55,headline-ticker-color:#003c55,badge-color:#003c55,checkmark-color:#ffffff,disabled-color:#b9b9b9,ticker-color:#c1c1c1,badge-text-color:#ffffff,
+//Buttons
+secondary-btn-text-color:#000000,secondary-btn-border:2px solid #000000,secondary-btn-bg-color:transparent,secondary-btn-text-hover-color:#ffffff,secondary-btn-bg-hover-color:#003c55,
+// Nav Bar
+navbar-text:#ffffff,navbar-color:#001020,navbar-text-link-color:#ffffff,navbar-cta-color:#ffffff,
+// Global Radius
+global-radius:4px, button-radius:4px, box-shadow:$box-shadow,
+// Anchors
+anchor-text-decoration: none, anchor-font-color: primary-color, anchor-font-color-hover: scale-color(#003c55, $lightness: -14%),
+// Table Variables
+// Background color for the table and even rows
+table-bg: default-white, table-even-row-bg: $body-background-color,background-repeat:repeat,masterhead-size:initial,
+// Table cell border style
+table-border-style: solid, table-border-size: 1px, table-border-color: keyline-color,
+// Table head styles
+table-head-bg: primary-color, table-head-font-size: rem-calc(14), table-head-font-color: #222, table-head-font-weight: bold, table-head-padding: rem-calc(8, 10, 10),
+// Row padding and font styles
+table-row-padding: rem-calc(9, 10), table-row-font-size: rem-calc(14), table-row-font-color: #222, table-line-height: rem-calc(18),
+// Display and margin of tables
+table-display: table-cell, table-margin-bottom: rem-calc(20),
+//Animations
+transition-timing: 0.4s,
+// Web Font
+primary-font-style:'GaramondPremier', primary-font-style-alt:serif, font-weight:400, txt-transform:initial,button-font-weight:400,regular-font-weight:100,bold-font-weight:200,header-case:unset,button-case:uppercase,secondary-font-style:HelveticaNeueRegular,secondary-font-style-alt:sans-serif,
+// Assets
+imgpath: /ProviderPortal/src/assets/shore-capital, ), hybridan: (
+// Default value body font-size for the base rem value.
+// Heading font sizes
+// Template Settings Hybidan Capital
+rem-base:15px, rem-base-half :8px, h1-font-size: rem-calc(44), h2-font-size: rem-calc(37), h3-font-size: rem-calc(27), h4-font-size: rem-calc(23), h5-font-size: rem-calc(18), h6-font-size: 1em, letter-spacing:0.02em,paragraph-margin:1.66em,
+// Colours
+primary-color:#059fe3, secondary-color:#000000, terciary-color:#161616,info-text-color:#161616,divider-color:#000000, picky-link-color:$picky-link-color, overlay-color:#211840, keyline-color: #d2d2d2, dark-color:#444444, body-background-color:$body-background-color, default-white: #ffffff, radiomark-on:#059fe3, radiomark-off: #c7c7c7,body-text-color:#444,hover-state-color:#c7c7c7,headline-text-color:#059fe3,headline-ticker-color:#059fe3,badge-color:#059fe3,checkmark-color:#ffffff,disabled-color:#b9b9b9,ticker-color:#c1c1c1,badge-text-color:#ffffff,
+//Buttons
+secondary-btn-text-color:#000000,secondary-btn-border:2px solid #059fe3,secondary-btn-bg-color:transparent,secondary-btn-text-hover-color:#ffffff,secondary-btn-bg-hover-color:#059fe3,
+// Nav Bar
+navbar-text:#000000,navbar-color:#f8f8f8,navbar-text-link-color:#059fe3,navbar-cta-color:#059fe3,
+// Global Radius
+global-radius:4px, button-radius:0, box-shadow:$box-shadow,
+// Anchors
+anchor-text-decoration: none, anchor-font-color: primary-color, anchor-font-color-hover: scale-color(#059fe3, $lightness: -14%),
+// Table Variables
+// Background color for the table and even rows
+table-bg: default-white, table-even-row-bg: $body-background-color,background-repeat:repeat,masterhead-size:initial,
+// Table cell border style
+table-border-style: solid, table-border-size: 1px, table-border-color: keyline-color,
+// Table head styles
+table-head-bg: primary-color, table-head-font-size: rem-calc(14), table-head-font-color: #222, table-head-font-weight: bold, table-head-padding: rem-calc(8, 10, 10),
+// Row padding and font styles
+table-row-padding: rem-calc(9, 10), table-row-font-size: rem-calc(14), table-row-font-color: #222, table-line-height: rem-calc(18),
+// Display and margin of tables
+table-display: table-cell, table-margin-bottom: rem-calc(20),
+//Animations
+transition-timing: 0.4s,
+// Web Font
+primary-font-style:'Open Sans', primary-font-style-alt:sans-serif, font-weight:400, txt-transform:initial,button-font-weight:400,regular-font-weight:100,bold-font-weight:200,header-case:unset,button-case:uppercase,secondary-font-style:HelveticaNeueRegular,secondary-font-style-alt:sans-serif,
+// Assets
+imgpath: /ProviderPortal/src/assets/hybridan, ), hannam-partners: (
+// Default value body font-size for the base rem value.
+// Heading font sizes
+// Template Settings Hannam Partners
+rem-base:20px, rem-base-half :10px, h1-font-size: rem-calc(44), h2-font-size: rem-calc(37), h3-font-size: rem-calc(27), h4-font-size: rem-calc(23), h5-font-size: rem-calc(18), h6-font-size: 1em, letter-spacing:0.02em,paragraph-margin:1.66em,
+// Colours
+primary-color:#ea0b38, secondary-color:#000000, terciary-color:#161616,info-text-color:#161616,divider-color:#000000, picky-link-color:$picky-link-color, overlay-color:#211840, keyline-color: #d2d2d2, dark-color:#444444, body-background-color:$body-background-color, default-white: #ffffff, radiomark-on:#ea0b38, radiomark-off: #c7c7c7,body-text-color:#444,hover-state-color:#c7c7c7,headline-text-color:#ea0b38,headline-ticker-color:#ea0b38,badge-color:#ea0b38,checkmark-color:#ffffff,disabled-color:#b9b9b9,ticker-color:#c1c1c1,badge-text-color:#ffffff,
+//Buttons
+secondary-btn-text-color:#ea0b38,secondary-btn-border:2px solid #ea0b38,secondary-btn-bg-color:transparent,secondary-btn-text-hover-color:#ffffff,secondary-btn-bg-hover-color:#ea0b38,
+// Nav Bar
+navbar-text:#000000,navbar-color:#f8f8f8,navbar-text-link-color:#ea0b38,navbar-cta-color:#ea0b38,
+// Global Radius
+global-radius:4px, button-radius:0, box-shadow:$box-shadow,
+// Anchors
+anchor-text-decoration: none, anchor-font-color: primary-color, anchor-font-color-hover: scale-color(#ea0b38, $lightness: -14%),
+// Table Variables
+// Background color for the table and even rows
+table-bg: default-white, table-even-row-bg: $body-background-color,background-repeat:repeat,masterhead-size:initial,
+// Table cell border style
+table-border-style: solid, table-border-size: 1px, table-border-color: keyline-color,
+// Table head styles
+table-head-bg: primary-color, table-head-font-size: rem-calc(14), table-head-font-color: #222, table-head-font-weight: bold, table-head-padding: rem-calc(8, 10, 10),
+// Row padding and font styles
+table-row-padding: rem-calc(9, 10), table-row-font-size: rem-calc(14), table-row-font-color: #222, table-line-height: rem-calc(18),
+// Display and margin of tables
+table-display: table-cell, table-margin-bottom: rem-calc(20),
+//Animations
+transition-timing: 0.4s,
+// Web Font
+primary-font-style:'Bressay Regular', primary-font-style-alt:serif, font-weight:400, txt-transform:initial,button-font-weight:400,regular-font-weight:100,bold-font-weight:200,header-case:unset,button-case:uppercase,secondary-font-style:'Open Sans',secondary-font-style-alt:sans-serif,
+// Assets
+imgpath: /ProviderPortal/src/assets/hannam-partners, ), fox-davis-capital: (
+// Default value body font-size for the base rem value.
+// Heading font sizes
+// Template Settings Fox Davis Capital
+rem-base:20px, rem-base-half :10px, h1-font-size: rem-calc(44), h2-font-size: rem-calc(37), h3-font-size: rem-calc(27), h4-font-size: rem-calc(23), h5-font-size: rem-calc(18), h6-font-size: 1em, letter-spacing:0.02em,paragraph-margin:1.66em,
+// Colours
+primary-color:#ea0b38, secondary-color:#000000, terciary-color:#161616,info-text-color:#161616,divider-color:#000000, picky-link-color:$picky-link-color, overlay-color:#211840, keyline-color: #d2d2d2, dark-color:#444444, body-background-color:$body-background-color, default-white: #ffffff, radiomark-on:#ea0b38, radiomark-off: #c7c7c7,body-text-color:#444,hover-state-color:#c7c7c7,headline-text-color:#ea0b38,headline-ticker-color:#ea0b38,badge-color:#ea0b38,checkmark-color:#ffffff,disabled-color:#b9b9b9,ticker-color:#c1c1c1,badge-text-color:#ffffff,
+//Buttons
+secondary-btn-text-color:#ea0b38,secondary-btn-border:2px solid #ea0b38,secondary-btn-bg-color:transparent,secondary-btn-text-hover-color:#ffffff,secondary-btn-bg-hover-color:#ea0b38,
+// Nav Bar
+navbar-text:#000000,navbar-color:#f8f8f8,navbar-text-link-color:#ea0b38,navbar-cta-color:#ea0b38,
+// Global Radius
+global-radius:4px, button-radius:0, box-shadow:$box-shadow,
+// Anchors
+anchor-text-decoration: none, anchor-font-color: primary-color, anchor-font-color-hover: scale-color(#ea0b38, $lightness: -14%),
+// Table Variables
+// Background color for the table and even rows
+table-bg: default-white, table-even-row-bg: $body-background-color,background-repeat:repeat,masterhead-size:initial,
+// Table cell border style
+table-border-style: solid, table-border-size: 1px, table-border-color: keyline-color,
+// Table head styles
+table-head-bg: primary-color, table-head-font-size: rem-calc(14), table-head-font-color: #222, table-head-font-weight: bold, table-head-padding: rem-calc(8, 10, 10),
+// Row padding and font styles
+table-row-padding: rem-calc(9, 10), table-row-font-size: rem-calc(14), table-row-font-color: #222, table-line-height: rem-calc(18),
+// Display and margin of tables
+table-display: table-cell, table-margin-bottom: rem-calc(20),
+//Animations
+transition-timing: 0.4s,
+// Web Font
+primary-font-style:'Bodoni Moda', primary-font-style-alt:serif, font-weight:600, txt-transform:initial,button-font-weight:400,regular-font-weight:100,bold-font-weight:600,header-case:unset,button-case:uppercase,secondary-font-style:'Public Sans',secondary-font-style-alt:sans-serif,
+// Assets
+imgpath: /ProviderPortal/src/assets/fox-davis-capital, ),);
+
+@mixin transition-all() {
+    -webkit-transition: all $transition-timing;
+    -moz-transition: all $transition-timing;
+    transition: all $transition-timing;
+}
+
+@mixin background-cover() {
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+@mixin themify($themes: $themes) {
+    @each $theme, $map in $themes {
+
+        .theme-#{$theme} & {
+            $theme-map: () !global;
+
+            @each $key, $submap in $map {
+                $value: map-get(map-get($themes, $theme), '#{$key}');
+                $theme-map: map-merge($theme-map, ($key: $value)) !global;
+            }
+
+            @content;
+            $theme-map: null !global;
+        }
+    }
+}
+
+@function themed($key) {
+    @return map-get($theme-map, $key);
+}

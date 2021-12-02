@@ -1,0 +1,194 @@
+﻿/* On screens that are between 1280px to */
+@media screen and (min-width:1280px) {
+    // Media tile styling
+    .media-feed-tile {
+        @include themify($themes) {
+
+            .tile-body {
+                flex: 0 0 440px;
+                padding: 1.25rem;
+            }
+        }
+    }
+}
+/* On screens that are between 1800px to */
+@media screen and (min-width:1799px) {
+    // Media tile styling
+    .media-feed-tile {
+        @include themify($themes) {
+
+            .tile-body {
+                flex: 0 0 650px;
+                padding: 1.25rem;
+            }
+        }
+    }
+}
+
+
+/* On screens that are between 1000px to */
+@media screen and (max-width:1000px) and (min-width:2000px) {
+    .modal-window {
+        width: 54%;
+    }
+}
+
+/* On screens that are between 576px to */
+@media screen and (max-width:576px) and (min-width:2000px) {
+}
+/* On screens that are between 576px to 974px*/
+@media screen and (min-width:576px) and (max-width:974px) {
+    .modal-window {
+        width: 80%;
+        top: 60px;
+    }
+
+    ul.tile-info {
+        li {
+            &.name {
+                span {
+                    float: none;
+                }
+            }
+        }
+    }
+}
+/* On screens that are min width 975px */
+@media (min-width:975px) {
+    .navbar-text {
+        margin: auto;
+        text-align: center;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+    }
+}
+/* On screens that are max width 974px */
+@media (max-width:974px) {
+    .navbar {
+        @include themify($themes) {
+            font-family: themed(font-style), sans-serif;
+            padding: themed(rem-base);
+            background-color: themed(navbar-color);
+            text-transform: themed(button-case);
+
+            .btn-primary, .btn-secondary {
+                width: 100%;
+            }
+
+            .cta-tertiary {
+                padding: themed(rem-base) / 2;
+                margin: 4px 0;
+            }
+        }
+    }
+}
+
+@media (max-width:784px) {
+    .jumbotron {
+        padding: 1.5rem 1rem;
+    }
+
+    .side-bar {
+        @include themify($themes) {
+            border-left: none;
+            border-top: 1px solid themed(keyline-color);
+            padding: 1.5rem;
+        }
+    }
+    .teaser-title-section {
+        @include themify($themes) {
+            transform: translateY(10px);
+            display: flex;
+            flex-direction:column;
+            img {
+                width:100%;
+                max-width:300px;
+            }
+        }
+    }
+    .main-page-content {
+        transform: translateY(5px);
+    }
+}
+
+@media (min-width:576px) {
+
+    .analyst-tile {
+        width: 480px;
+    }
+
+    .company-tile, .events-tile {
+        width: 320px;
+    }
+
+    .events-tile {
+        width: 360px;
+    }
+}
+/* On screens that are 575px or less */
+@media (max-width:575px) {
+    .modal-window {
+        width: 94%;
+        top: 40px;
+        max-height: 500px;
+    }
+
+    .navbar-nav {
+        @include themify($themes) {
+            margin-bottom: themed(rem-base);
+            display: inline;
+
+            li {
+                display: inline;
+            }
+        }
+    }
+
+    .navbar-side {
+        @include themify($themes) {
+            margin: 0;
+            padding:0 1rem;
+
+            li:first-child {
+                text-align: center;
+            }
+        }
+    }
+    // Media error actions
+    .error-actions {
+        flex-direction:column;
+        .btn {
+            margin: 16px 0;
+        }
+    }
+
+    // Media tile styling
+    .media-feed-tile {
+        @include themify($themes) {
+            height:auto;
+            max-height:100%;
+            .tile-body {
+                flex: 1;
+                padding: 1.25rem;
+            }
+
+            .card-horizontal {
+                -ms-flex-direction: column;
+                flex-direction: column;
+            }
+
+            .img-square-wrapper {
+                flex: 1;
+                position: relative;
+
+                .card-img {
+                    object-fit:inherit;
+                    width: 100%;
+                    height:auto;
+                }
+            }
+        }
+    }
+}
